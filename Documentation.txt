@@ -1,1 +1,11 @@
 IGME 330 Project 1 Documentation
+
+9-16-2020
+    -I have moved away from working on integrating Sin wave movement for the moment (possible addition later).
+    -Phyllotaxis spawns at center, constantly growing and moving all spawned points, user can currently reverse x direction on click.
+    -All directions screen wrap
+    -Pause, Play, Stop Movement, Start Movement, Reverse Direction buttons added
+    -I plan on adding directional movement to make the formation move as user wishes (similar to snake games)
+    -Color changing features coming?
+    -Allow for changing speed and/or spacing
+    -Need to fix fade so it properly erases after a period of time
