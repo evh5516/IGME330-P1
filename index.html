@@ -1,19 +1,47 @@
 <html>
 <head>
-	<title>Greeter App with Globals</title>
+	<title>Project 1</title>
 </head>
     
 <body>
     <canvas id="canvas"></canvas>
-	<p>
-		<button id="draw">Start</button>
-		<button id="pause">Pause</button>
-		<button id="move">Move</button>
-		<button id="stop">Stop</button>
-		<button id="reverse">Reverse</button>
-	</p>
+    <main>
+    <div id="inputs">
+    <section id="screenControls">
+        <p>
+	        <button class="button" id="draw">Start</button>
+		    <button class="button" id="pause">Pause</button>
+            
+            <button class="button" id="moveL">Move Left</button>
+	        <button class="button" id="stopX">Stop Horizontal</button>
+		    <button class="button" id="moveR">Move Right</button>
+            
+            <br>
+            
+            <button class="button" id="half">0.5x Speed</button>
+		    <button class="button" id="double">2x Speed</button>
+            
+            <button class="button" id="stop">Stop</button>
+            
+            <br>
+            
+            <button class="button" id="moveU">Move Up</button>
+		    <button class="button" id="stopY">Stop Vertical</button>
+		    <button class="button" id="moveD">Move Down</button>
+        </p>
+    </section>
+    <p style="clear:both">
+    </div>
+    </main>
+    <section id="directions">
+       <header>Directions</header>
+        <p>
+	        This is a simulation that takes a constantly growing phyllotaxis and allows the user to move around the points as they are created. It is meant to be simple yet allows for interesting creations and patterns to be formed. Use the controls to influence the direction and speed of the phyllotaxis.
+        </p>
+    </section>
 </body>
 <link href="styles/my-styles.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 <script src = 'src/evhLIB.js'></script>
 <script src = 'src/index.js'></script>
 </html>

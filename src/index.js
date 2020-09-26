@@ -8,11 +8,16 @@
     const divergence = 137.5; // play with this   
     let c = 5; // play with this
     let paused = true;
-    let directional = 0; // 1 -> right    -1 -> left    0 -> static
-    let futureDirection = 1;
-    let oldDirection = 1;
+    let directionalX = 0;
+    let directionalY = 0;
+    let speed = 1;
     let x2 = 0, y2 = 0;
     let phyllotaxis = [];
+
+    // Magic Numbers
+    let negative = -1;
+    let positive = 1;
+    let nil = 0;
         
     window.onload = init;
 
@@ -20,7 +25,7 @@
 		ctx = canvas.getContext("2d");
 		canvas.width = canvasWidth;
 		canvas.height = canvasHeight;
-		ctx.fillRect(0,0,canvasWidth,canvasHeight);
+		ctx.fillRect(nil,nil,canvasWidth,canvasHeight);
 
         setupUI();
         loop();
@@ -35,27 +40,33 @@
             document.querySelector('#pause').onclick = function(){
                 paused = true;
             };
-            document.querySelector('#reverse').onclick = function(){
-                if (directional == 0)
-                {
-                    futureDirection = oldDirection * -1;
-                }
-                else{
-                    directional *= -1;
-                }
+            document.querySelector('#moveL').onclick = function(){
+                directionalX = negative;
             };
-            document.querySelector('#move').onclick = function(){
-                if (directional == 0)
-                {
-                    directional = futureDirection;
-                }
-                else{
-                    directional = oldDirection;
-                }
+            document.querySelector('#moveR').onclick = function(){
+                directionalX = positive;
+            };
+            document.querySelector('#moveU').onclick = function(){
+                directionalY = negative;
+            };
+            document.querySelector('#moveD').onclick = function(){
+                directionalY = positive;
+            };
+            document.querySelector('#stopX').onclick = function(){
+                directionalX = nil;
+            };
+            document.querySelector('#stopY').onclick = function(){
+                directionalY = nil;
             };
             document.querySelector('#stop').onclick = function(){
-                oldDirection = directional;
-                directional = 0;
+                directionalX = nil;
+                directionalY = nil;
+            };
+            document.querySelector('#half').onclick = function(){
+                speed *= 0.5;
+            };
+            document.querySelector('#double').onclick = function(){
+                speed *= 2;
             };
         }
         
@@ -70,31 +81,28 @@
         
         evhLIB.drawPhyllotaxis(phyllotaxis, n, c, divergence, ctx, canvasWidth, canvasHeight);
         
-        for (let i = 0; i < phyllotaxis.length; i++)
+        for (let i = nil; i < phyllotaxis.length; i++)
         {
-            phyllotaxis[i].x += directional;
-            if (phyllotaxis[i].x >= canvasWidth)
+            phyllotaxis[i].x += (directionalX*speed);
+            phyllotaxis[i].y += (directionalY*speed);
+            if (phyllotaxis[i].x > canvasWidth)
             {
-                phyllotaxis[i].x = 0;
+                phyllotaxis[i].x = nil;
             }
-            if (phyllotaxis[i].x <= 0)
+            if (phyllotaxis[i].x < nil)
             {
                 phyllotaxis[i].x = canvasWidth;
             }
-            if (phyllotaxis[i].y <= 0)
+            if (phyllotaxis[i].y < nil)
             {
                 phyllotaxis[i].y = canvasHeight;
             }
-            if (phyllotaxis[i].y >= canvasHeight)
+            if (phyllotaxis[i].y > canvasHeight)
             {
-                phyllotaxis[i].y = 0;
-            }
+                phyllotaxis[i].y = nil;
+            }  
         }
         
         n++; 
-    }
-    
-    function loop2(){
-        
     }
 })()

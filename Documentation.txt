@@ -9,3 +9,16 @@ IGME 330 Project 1 Documentation
     -Color changing features coming?
     -Allow for changing speed and/or spacing
     -Need to fix fade so it properly erases after a period of time
+    
+9-23-2020
+    -User can now move in cardinal directions and diagonals
+    -Double and 1/2 speed buttons added
+
+9-24-2020
+    -Added directions/description
+    -Improved HTML formatting
+    -Fixed some magic numbers
+
+9-26-2020
+    -Adjusted UI/button layout 
+    -Minor bug fixes
